@@ -23,5 +23,8 @@ Just for saving time, I'm writing all needed lines to install requirements for a
 pyhton3 -m venv env
 source ./env/bin/activate
 pip3 install -r requirements.txt
-uvicorn main:app --reload
 ```
+
+## Execution
+
+Simply just run `python3 main.py`.
