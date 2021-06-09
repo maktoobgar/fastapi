@@ -1,4 +1,6 @@
 fastapi>=0.65.1
 uvicorn>=0.14.0
+wheel>=0.36.2
 sqlalchemy>=1.4.17
 passlib>=1.7.4
+jose>=1.0.0
