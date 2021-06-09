@@ -27,4 +27,4 @@ pip3 install -r requirements.txt
 
 ## Execution
 
-Simply just run `python3 main.py`.
+Simply just run `uvicorn main:app --reload`.
