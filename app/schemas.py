@@ -2,32 +2,53 @@ from typing import List, Optional
 from pydantic import BaseModel
 
 
-class PostCreate(BaseModel):
+class PostBase(BaseModel):
     title: str
-    description: Optional[str] = None
+    context: str
 
 
-class UserBase(BaseModel):
-    username: str
-    email: str
+class Post(PostBase):
 
-
-class Post(PostCreate):
-    id: int
-    user_id: int
-    user: UserBase
-
-    class Config:
+    class Config():
         orm_mode = True
 
 
-class UserCreate(UserBase):
+class User(BaseModel):
+    id: int
+    username: str
+    email: str
     password: str
 
 
-class User(UserBase):
+class ShowPost(BaseModel):
     id: int
-    posts: List[Post] = []
+    title: str
+    body: str
+    creator: User
 
-    class Config:
+    class Config():
         orm_mode = True
+
+
+class ShowUser(BaseModel):
+    id: int
+    username: str
+    email: str
+    posts: List[ShowPost] = []
+
+    class Config():
+        orm_mode = True
+
+
+class Login(BaseModel):
+    username: str
+    password: str
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    email: Optional[str] = None
